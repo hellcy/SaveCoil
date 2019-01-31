@@ -16,7 +16,7 @@ namespace SaveCoil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SaveCoil());
+            Application.Run(new BarcodeCapture());
         }
     }
 }

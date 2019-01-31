@@ -1,6 +1,6 @@
 ﻿namespace SaveCoil
 {
-    partial class SaveCoil
+    partial class BarcodeCapture
     {
         /// <summary>
         /// Required designer variable.
@@ -28,58 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.FileName = new System.Windows.Forms.Label();
+            this.Message1 = new System.Windows.Forms.Label();
             this.Message = new System.Windows.Forms.Label();
-            this.Save = new System.Windows.Forms.Button();
             this.Barcode = new System.Windows.Forms.TextBox();
+            this.TodayCoil = new System.Windows.Forms.Label();
+            this.TodayCoil2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // FileName
+            // Message1
             // 
-            this.FileName.AutoSize = true;
-            this.FileName.Location = new System.Drawing.Point(12, 27);
-            this.FileName.Name = "FileName";
-            this.FileName.Size = new System.Drawing.Size(51, 13);
-            this.FileName.TabIndex = 0;
-            this.FileName.Text = "FileName";
+            this.Message1.AutoSize = true;
+            this.Message1.Location = new System.Drawing.Point(12, 9);
+            this.Message1.Name = "Message1";
+            this.Message1.Size = new System.Drawing.Size(107, 13);
+            this.Message1.TabIndex = 0;
+            this.Message1.Text = "Please scan barcode";
             // 
             // Message
             // 
             this.Message.AutoSize = true;
-            this.Message.Location = new System.Drawing.Point(13, 95);
+            this.Message.Location = new System.Drawing.Point(12, 48);
             this.Message.Name = "Message";
             this.Message.Size = new System.Drawing.Size(50, 13);
             this.Message.TabIndex = 1;
             this.Message.Text = "Message";
             // 
-            // Save
-            // 
-            this.Save.Location = new System.Drawing.Point(289, 43);
-            this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(112, 47);
-            this.Save.TabIndex = 2;
-            this.Save.Text = "Save";
-            this.Save.UseVisualStyleBackColor = true;
-            this.Save.Click += new System.EventHandler(this.Save_Click);
-            // 
             // Barcode
             // 
-            this.Barcode.Location = new System.Drawing.Point(12, 57);
+            this.Barcode.Location = new System.Drawing.Point(12, 25);
             this.Barcode.Name = "Barcode";
             this.Barcode.Size = new System.Drawing.Size(271, 20);
             this.Barcode.TabIndex = 3;
+            this.Barcode.TextChanged += new System.EventHandler(this.Barcode_TextChanged);
             // 
-            // SaveCoil
+            // TodayCoil
+            // 
+            this.TodayCoil.AutoSize = true;
+            this.TodayCoil.Location = new System.Drawing.Point(12, 74);
+            this.TodayCoil.Name = "TodayCoil";
+            this.TodayCoil.Size = new System.Drawing.Size(64, 13);
+            this.TodayCoil.TabIndex = 4;
+            this.TodayCoil.Text = "Today\'s Coil";
+            // 
+            // TodayCoil2
+            // 
+            this.TodayCoil2.AutoSize = true;
+            this.TodayCoil2.Location = new System.Drawing.Point(322, 9);
+            this.TodayCoil2.Name = "TodayCoil2";
+            this.TodayCoil2.Size = new System.Drawing.Size(0, 13);
+            this.TodayCoil2.TabIndex = 5;
+            // 
+            // BarcodeCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 128);
+            this.ClientSize = new System.Drawing.Size(662, 286);
+            this.Controls.Add(this.TodayCoil2);
+            this.Controls.Add(this.TodayCoil);
             this.Controls.Add(this.Barcode);
-            this.Controls.Add(this.Save);
             this.Controls.Add(this.Message);
-            this.Controls.Add(this.FileName);
-            this.Name = "SaveCoil";
-            this.Text = "SaveCoil";
+            this.Controls.Add(this.Message1);
+            this.Name = "BarcodeCapture";
+            this.Text = "Barcode Capture";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,10 +97,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label FileName;
+        private System.Windows.Forms.Label Message1;
         private System.Windows.Forms.Label Message;
-        private System.Windows.Forms.Button Save;
         private System.Windows.Forms.TextBox Barcode;
+        private System.Windows.Forms.Label TodayCoil;
+        private System.Windows.Forms.Label TodayCoil2;
     }
 }
 
