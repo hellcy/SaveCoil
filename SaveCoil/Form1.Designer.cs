@@ -73,7 +73,7 @@
             // TodayCoil2
             // 
             this.TodayCoil2.AutoSize = true;
-            this.TodayCoil2.Location = new System.Drawing.Point(322, 9);
+            this.TodayCoil2.Location = new System.Drawing.Point(339, 9);
             this.TodayCoil2.Name = "TodayCoil2";
             this.TodayCoil2.Size = new System.Drawing.Size(0, 13);
             this.TodayCoil2.TabIndex = 5;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 286);
+            this.ClientSize = new System.Drawing.Size(680, 291);
             this.Controls.Add(this.TodayCoil2);
             this.Controls.Add(this.TodayCoil);
             this.Controls.Add(this.Barcode);
