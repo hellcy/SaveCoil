@@ -28,7 +28,7 @@ namespace SaveCoil
         private async void Barcode_TextChanged(object sender, EventArgs e)
         {
             await Task.Delay(1000);
-            string path = @"C:\SavedCoils\" + date + ".csv";
+            string path = @"C:\CapturedCoils\" + date + ".csv";
             string coilID = Barcode.Text;
             if (coilID != "")
             {
@@ -59,11 +59,11 @@ namespace SaveCoil
         // call this function whenever we open the application
         private void displayContent()
         {
-            if ((System.IO.File.Exists(@"C:\SavedCoils\" + date + ".csv")) == true)
+            if ((System.IO.File.Exists(@"C:\CapturedCoils\" + date + ".csv")) == true)
             {
                 int j = 1; // sequence number
                 TodayCoil.Text = "Today's Coil \n";
-                foreach (string line in System.IO.File.ReadLines(@"C:\SavedCoils\" + date + ".csv"))
+                foreach (string line in System.IO.File.ReadLines(@"C:\CapturedCoils\" + date + ".csv"))
                 {
                     TodayCoil.Text = TodayCoil.Text + j + ". " + line + "\n";
                     j++;
@@ -74,9 +74,9 @@ namespace SaveCoil
                     }
                 }
 
-                int k = 1; // use to skip the first 12 lines
+                int k = 1; // use to skip the lines displayed by TodayCoil so they don't duplicate.
                 TodayCoil2.Text = "";
-                foreach (string line in System.IO.File.ReadLines(@"C:\SavedCoils\" + date + ".csv"))
+                foreach (string line in System.IO.File.ReadLines(@"C:\CapturedCoils\" + date + ".csv"))
                 {
                     if (k > 15)
                     {
@@ -92,13 +92,13 @@ namespace SaveCoil
         // call this function whenever we scan the barcode
         private void updateContent()
         {
-            if ((System.IO.File.Exists(@"C:\SavedCoils\" + date + ".csv")) == true)
+            if ((System.IO.File.Exists(@"C:\CapturedCoils\" + date + ".csv")) == true)
             {
                 if (i <= 15)
                 {
                     int j = 1; // sequence number
                     TodayCoil.Text = "Today's Coil \n";
-                    foreach (string line in System.IO.File.ReadLines(@"C:\SavedCoils\" + date + ".csv"))
+                    foreach (string line in System.IO.File.ReadLines(@"C:\CapturedCoils\" + date + ".csv"))
                     {
                         TodayCoil.Text = TodayCoil.Text + j + ". " + line + "\n";
                         j++;
@@ -110,7 +110,7 @@ namespace SaveCoil
                     int j = 16; // sequence number
                     int k = 1; // use to skip the lines displayed by TodayCoil so they don't duplicate.
                     TodayCoil2.Text = "";
-                    foreach (string line in System.IO.File.ReadLines(@"C:\SavedCoils\" + date + ".csv"))
+                    foreach (string line in System.IO.File.ReadLines(@"C:\CapturedCoils\" + date + ".csv"))
                     {
                         if (k > 15)
                         {
