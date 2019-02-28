@@ -27,28 +27,23 @@ namespace SaveCoil
 
         private async void Barcode_TextChanged(object sender, EventArgs e)
         {
-            await Task.Delay(1000);
+            await Task.Delay(500);
+
             string path = @"C:\CapturedCoils\" + date + ".csv";
             string coilID = Barcode.Text;
             if (coilID != "")
             {
+
                 coilID = coilID.Replace('+', ',');
+                date = DateTime.Now.ToString("yyyy-MM-dd");
+                time = DateTime.Now.ToString("HH:mm:ss");
                 string dt = date + " " + time;
                 coilID = coilID + ",    " + dt;
                 TextWriter txt = new StreamWriter(path, true); // true means text will be appended to the file.
                 txt.WriteLine(coilID);
                 txt.Close();
                 string[] barcodeArr = coilID.Split(',');
-                if (barcodeArr[0].Length != 11)
-                {
-                    Message.Text = "Please SCAN again!";
-                    Message.ForeColor = System.Drawing.Color.Red;
-                }
-                else
-                {
-                    Message.ForeColor = System.Drawing.Color.Black;
-                    Message.Text = "CoilID " + coilID.Substring(0, 9) + " saved!";
-                }
+
                 Barcode.Text = "";
 
                 // display all coils scanned today
@@ -62,10 +57,10 @@ namespace SaveCoil
             if ((System.IO.File.Exists(@"C:\CapturedCoils\" + date + ".csv")) == true)
             {
                 int j = 1; // sequence number
-                TodayCoil.Text = "Today's Coil \n";
+                ItemScanned.Text = "Item scanned: \n";
                 foreach (string line in System.IO.File.ReadLines(@"C:\CapturedCoils\" + date + ".csv"))
                 {
-                    TodayCoil.Text = TodayCoil.Text + j + ". " + line + "\n";
+                    ItemScanned.Text = ItemScanned.Text + j + ". " + line + "\n";
                     j++;
                     i++;
                     if (i > 15)
@@ -97,10 +92,10 @@ namespace SaveCoil
                 if (i <= 15)
                 {
                     int j = 1; // sequence number
-                    TodayCoil.Text = "Today's Coil \n";
+                    ItemScanned.Text = "Item scanned: \n";
                     foreach (string line in System.IO.File.ReadLines(@"C:\CapturedCoils\" + date + ".csv"))
                     {
-                        TodayCoil.Text = TodayCoil.Text + j + ". " + line + "\n";
+                        ItemScanned.Text = ItemScanned.Text + j + ". " + line + "\n";
                         j++;
                     }
                     i++;
